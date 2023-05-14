@@ -32,7 +32,7 @@
 				</ul>
 			</header>
 			<div class="content">
-				<span class="image fill" data-position="center" text-align: "center"><img src="images/SinghNotariesLogo.png" alt="" text-align: "center" /></span>
+				<span class="image fill" data-position="center" text-align: "center"><img src="{{ url_for('static', filename='images/SinghNotariesLogo.png') }}" alt="" text-align: "center" /></span>
 			</div>
 		</section>
 
@@ -48,7 +48,7 @@
 					a New York Notary Public. Singh Notaries provides mobile notary services to businesses, residences, transportation industry, hospitals, convalescent homes, jails, detention centers, hotels, and more. Our services are guaranteed
 					professional, punctual, and precise! Singh Notaries are available to notarize trust, legal agreements, adoption paperwork, parental permission to travel, health care directives, powers of attorney, motor vehicle transfer documents and
 					more…! Your notary is only one call away from you!</p>
-				<span class="image main"><img src="images/notary1-544.jpeg" alt="" /></span>
+				<span class="image main"><img src="{{ url_for('static', filename='images/notary1-544.jpeg') }}" alt="" /></span>
 			</div>
 		</section>
 
@@ -100,7 +100,7 @@
 								<br></br>
 
 								<div class="content2">
-									<span class="image main"><img src="images/gallery/Public-Notary-big-RS.jpeg" alt="" /></span>
+									<span class="image main"><img src="{{ url_for('static', filename='images/gallery/Public-Notary-big-RS.jpeg') }}" alt="" /></span>
 								</div>
 								<p>We provide impeccable on-time services and are a known name for high integrity as well as fast turnaround times throughout the NYC region.</p>
 					</div>
@@ -202,8 +202,44 @@
 					<div class="content">
 						<p><strong>24/7!</strong> Yes, Our Notary services are open to the general public as well as the private sector 24 hours a day 7 days a week. Same day appointments also available!</p>
 
-						<iframe src="https://www.cognitoforms.com/f/tfPsR7kQ-E2V98XMtlrcwQ/1" style="border:0;width:100%;" height="1033"></iframe>
-						<script src="https://www.cognitoforms.com/f/iframe.js"></script>
+						<!-- <iframe src="https://www.cognitoforms.com/f/tfPsR7kQ-E2V98XMtlrcwQ/1" style="border:0;width:100%;" height="1033"></iframe>
+						<script src="https://www.cognitoforms.com/f/iframe.js"></script> -->
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+						<form id="email-form" name="email-form" data-name="Email Form" action="{{ url_for('views.home') }}" method="POST" enctype="multipart/form-data">
+							<label for="fname">First Name</label><input type="text" class="w-input" maxlength="256" name="fname" data-name="fname" placeholder="" id="fname">
+							<label for="lname-7">Last Name</label><input type="text" class="w-input" maxlength="256" name="lname" data-name="lname" placeholder="" id="lname">
+							<label for="email">Email</label><input type="email" class="w-input" maxlength="256" name="email" data-name="email" placeholder="" id="email" required="">
+							<label for="address">Address</label><input type="text" class="w-input" maxlength="256" name="address" data-name="address" placeholder="" id="address">
+							<label for="address2">Address 2</label><input type="text" class="w-input" maxlength="256" name="address2" data-name="address2" placeholder="" id="address2">
+							<label for="city">City</label><input type="text" class="w-input" maxlength="256" name="city" data-name="city" placeholder="" id="city">
+							<label for="st">State</label><input type="text" class="w-input" maxlength="256" name="st" data-name="st" placeholder="" id="st">
+							<label for="zipcode">Zipcode</label><input type="text" class="w-input" maxlength="256" name="zipcode" data-name="zipcode" placeholder="" id="zipcode">
+							<label for="phone">Phone</label><input type="text" class="w-input" maxlength="256" name="phone" data-name="phone" placeholder="" id="phone">
+							<label for="doctype">Select Document Type</label><select id="doctype" name="doctype" data-name="doctype" class="w-select">
+							  <option value="">Select one...</option>
+							  <option value="First">Notary for Individual</option>
+							  <option value="Second">Notary for Legal</option>
+							  <option value="Third">Notary for Real Estate</option>
+							</select>
+							<label for="file">Please upload document</label>
+							<div class="w-file-upload">
+							  <div class="w-file-upload-default"><input type="file" class="w-file-upload-input" accept="" name="file" data-name="File" aria-hidden="true" id="file" tabindex="-1"><label for="file" role="button" tabindex="0" class="w-file-upload-label">
+								  <div class="w-icon-file-upload-icon"></div>
+								  <div class="w-inline-block">Upload File</div>
+								</label>
+								<div class="w-file-upload-info">Max file size 10MB.</div>
+							  </div>
+							</div>
+							<input type="submit" value="Submit" data-wait="Please wait..." class="w-button">
+						  
+							<div class="success-message" style="display: none;">
+							  Form submission successful.
+							</div>
+						  
+							<div class="error-message" style="display: none;">
+							  There was a problem with your submission. Please try again.
+							</div>
+						  </form>
 						<!-- <div>
 							<div>
 								<div style="
@@ -338,6 +374,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="notary.js"></script>
 
 </body>
 

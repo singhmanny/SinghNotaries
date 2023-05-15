@@ -1,0 +1,33 @@
+// Define an array to store the products or services
+var products = [
+  { name: "Notary Service 1" },
+  { name: "Notary Service 2" },
+  { name: "Notary Service 3" }
+];
+
+// Function to generate the product listing HTML
+function generateProductListing() {
+  var productListing = "<h1>Products and Services</h1>";
+  
+  // Loop through each product and create a listing
+  for (var i = 0; i < products.length; i++) {
+    var product = products[i];
+    productListing += "<div class='product'>";
+    productListing += "<h2>" + product.name + "</h2>";
+    productListing += "<button onclick='addToCart(" + i + ")'>Add to Cart</button>";
+    productListing += "</div>";
+  }
+  
+  // Display the product listing on the webpage
+  document.getElementById("productListing").innerHTML = productListing;
+}
+
+// Function to add a product to the shopping cart
+function addToCart(index) {
+  // Here, you can implement the logic to add the selected product to the shopping cart
+  // You can store the selected product in an array or perform other actions as needed
+  console.log("Product added to cart:", products[index]);
+}
+
+// Call the generateProductListing function to display the product listing on the webpage
+generateProductListing();
